@@ -1,4 +1,16 @@
-# このアプリは
+# このアプリは「Spring BootアプリをDockerイメージ化し、GitHub ActionsからOIDCでAWSへ認証し、ECRへpushして、ECS Fargateへデプロイする」構成
+
+> [!success]
+> PR時: Mavenテストと静的解析だけ実行する。AWSへはデプロイしない。
+> 
+> mainへのpush時: テスト・静的解析が成功した場合のみ、Docker build、ECR push、ECS Fargate deployを実行する。
+> 
+> 手動実行: workflow_dispatchで環境を指定してデプロイできるようにする。
+> 
+> AWS認証: 長期アクセスキーをGitHub Secretsに置かず、OIDCで一時的にAWSロールを引き受ける。
+> 
+> 保護ブランチ: mainへ直接pushせず、PRの必須チェックを通してからmergeする。
+
 
 ## Spring Initializr で作成したバックエンド側の構成
 
