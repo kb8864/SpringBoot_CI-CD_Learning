@@ -2,16 +2,25 @@
 
 ## Spring Initializr で作成したバックエンド側の構成
 
-項目	設定値
-Project	Maven
-Language	Java
-Spring Boot	デフォルトの安定版
-Group	com.example
-Artifact	github-actions-demo
-Name	github-actions-demo
-Package name	com.example.githubactionsdemo
-Packaging	Jar
-Java	21
+項目：	設定値
+
+Project：	Maven
+
+Language：	Java
+
+Spring Boot	：4.0.6
+
+Group	：com.example.cicd
+
+Artifact:	github-actions-cicd
+
+Name: github-actions-cicd
+
+Package name:	com.example.githubactionscicd
+
+Packaging:	Jar
+
+Java:	21
 
 ### Dependenciesに追加
 Spring Web
