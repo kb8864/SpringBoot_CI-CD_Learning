@@ -24,6 +24,10 @@ jobs:
           - name: static-analysis
             command: ./mvnw -B checkstyle:check
 
+    defaults:
+      run:
+        working-directory: cicd
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
