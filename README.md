@@ -1,6 +1,7 @@
 # このアプリは「Spring BootアプリをDockerイメージ化し、GitHub ActionsからOIDCでAWSへ認証し、ECRへpushして、ECS Fargateへデプロイする」構成
 
 > [!success]
+> 
 > PR時: Mavenテストと静的解析だけ実行する。AWSへはデプロイしない。
 > 
 > mainへのpush時: テスト・静的解析が成功した場合のみ、Docker build、ECR push、ECS Fargate deployを実行する。
@@ -37,20 +38,16 @@ Java:	21
 ### Dependenciesに追加
 Spring Web
 
-
 ## 今回作成する内容
-Spring Bootアプリの作成
-Controller / テスト / Checkstyle設定
-Dockerfile / .dockerignore
-ci.yml
-deploy.yml
-push / pull_request / workflow_dispatch
-ECRへのDockerイメージbuild・push
-ECS Fargateへの自動デプロイ
-OIDC認証のIAM信頼ポリシー例
-GitHub Secrets / Variables
-permissions設定
-条件分岐 / matrix strategy / concurrency
-保護ブランチと必須チェック
-Basic認証を使う外部サービス接続例
-成功ケース / 失敗ケース
+|                 |               |                                 |
+| --------------- | ------------- | ------------------------------- |
+| **要素**          | **役割**        | **自分用の理解**          |
+| Spring Boot     | Web API本体     | ControllerがHTTPリクエストを受けてJSONを返す |
+| Dockerfile      | アプリの実行環境定義    | Java 21入りの実行箱を作る設計書             |
+| ECR             | Dockerイメージ置き場 | MavenリポジトリのDocker版に近い           |
+| ECS Fargate     | コンテナ実行環境      | サーバを直接管理せずコンテナを動かす              |
+| Task Definition | コンテナ起動設定      | Javaの起動引数・ポート・メモリ設定に近い          |
+| ECS Service     | 指定数のタスクを維持    | アプリプロセスを常に1個以上動かす管理役            |
+| ALB             | 外部公開入口        | HTTPリクエストをECSタスクへ振り分ける入口        |
+| GitHub Actions  | CI/CD実行基盤     | push/PRをきっかけにコマンドを自動実行する        |
+
